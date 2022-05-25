@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AddUsers from '../AddUsers/AddUsers'
 import Users from '../Users/Users'
 
-const index = () => {
+const ContactUserList = () => {
+  const [ contactList, setContactList] = React.useState([]);
+
   return (
     <div>
-        <AddUsers/>
-        <Users/>
+        <AddUsers setContactList={setContactList} />
+        <Users contactList={contactList} />
     </div>
   )
 }
 
-export default index
+export default ContactUserList
