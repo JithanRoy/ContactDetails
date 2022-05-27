@@ -28,8 +28,8 @@ const AddUsers = (props) => {
   } 
 
   return (
-      <div className="Inputfields w-96 h-96 m-40 rounded ">
-          <form onSubmit={handleSubmit} className='flex flex-col p-10 bg-slate-400 rounded' >
+      <div className="">
+          <form onSubmit={handleSubmit} className='flex flex-col p-10 bg-slate-500 rounded' >
             <div className='m-2 flex flex-col'>
                 <label htmlFor="nameInput">Name: </label>
                 <input className='nameInput p-1 rounded' type="text" name='name' placeholder='Please enter your name' onChange={addHandler}></input>
