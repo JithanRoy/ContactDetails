@@ -3,11 +3,21 @@ import ReactDOM from 'react-dom/client';
 import './input.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Routes } from "react-router-dom";   
+import Edit from './Components/Edit/Edit';
+import Delete from './Components/Delete/Delete';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element= {<App/>} ></Route>
+        <Route path='/Edit' element = {<Edit/>} > </Route>
+        <Route path='/Delete' element = {<Delete/>} ></Route>     
+      </Routes>
+      
+    </BrowserRouter>
   </React.StrictMode>
 );
 
