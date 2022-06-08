@@ -1,4 +1,6 @@
 import React from 'react'
+
+
 const AddUsers = (props) => {
   const {setContactList} = props;
   const [inputValue, setInputValue ] = React.useState({
@@ -6,6 +8,8 @@ const AddUsers = (props) => {
     email: "",
     address: ""
   });
+
+
 
   const addHandler = (event)=> {
      const { name, value } = event.target;
@@ -17,6 +21,8 @@ const AddUsers = (props) => {
       
   }
 
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if(inputValue.name !== "") {
@@ -27,6 +33,7 @@ const AddUsers = (props) => {
     }
   } 
 
+  
   return (
       <div className="">
           <form onSubmit={handleSubmit} className='flex flex-col p-10 bg-slate-500 rounded' >
