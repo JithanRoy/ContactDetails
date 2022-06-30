@@ -3,6 +3,7 @@ import {Routes, Route} from 'react-router-dom';
 import UserList  from './Components/userList/UserList';
 import Edit from './Components/Edit';
 import Delete from './Components/Delete';
+import AddUser from './Components/AddUser';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
           <Route path="/" element={<UserList/>}/>
           <Route path='Edit' element={<Edit/>}/>
           <Route path='Delete' element={<Delete/>}/>
+          <Route path='AddUser' element={<AddUser/>}/>
       </Routes>
     </div>
   );

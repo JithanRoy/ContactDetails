@@ -15,28 +15,27 @@ const UserList = () => {
       console.log(result.data);
       setUser(result.data);
   }
-
   // console.log(users);
-
   return (
     <div>
-      {users.map((user) => (
-        <div>
-          <div key={user.id}>
-            <h2>User ID : {user.id}</h2>
-            <h4>Name : {user.name}</h4>
-            <p>Phone : {user.phone}</p>
-            <p>Email : {user.email}</p>
+      <div>
+        <Link to="/AddUser">AddUser</Link>
+      </div>
+      {users.map((user, index) => (
+        <div key={index}>
+          <div>
+              <h2>User ID : {user.id}</h2>
+              <h4>Name : {user.name}</h4>
+              <p>Phone : {user.phone}</p>
+              <p>Email : {user.email}</p>
           </div>
 
           <div>
             <button>
-              {" "}
-              <Link to="/Edit">Edit</Link>{" "}
+              <Link to="/Edit">Edit</Link>
             </button>
             <button>
-              {" "}
-              <Link to="/Delete">Delete</Link>{" "}
+              <Link to="/Delete">Delete</Link>
             </button>
           </div>
         </div>
