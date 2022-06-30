@@ -3,7 +3,7 @@ import {Routes, Route} from 'react-router-dom';
 import UserList  from './Components/userList/UserList';
 import Edit from './Components/Edit';
 import Delete from './Components/Delete';
-import AddUser from './Components/AddUser';
+import AddUser from './Components/AddUser/AddUser';
 
 function App() {
   return (

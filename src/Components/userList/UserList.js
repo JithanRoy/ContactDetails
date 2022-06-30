@@ -26,8 +26,8 @@ const UserList = () => {
           <div>
               <h2>User ID : {user.id}</h2>
               <h4>Name : {user.name}</h4>
-              <p>Phone : {user.phone}</p>
-              <p>Email : {user.email}</p>
+              <p>Phone : {user.email}</p>
+              <p>Email : {user.username}</p>
           </div>
 
           <div>
