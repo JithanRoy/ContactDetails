@@ -1,44 +1,48 @@
-import { Button } from '@mui/material';
-import axios from 'axios';
-import React from 'react'
-import { useEffect, useState } from 'react'
-import Edit from '../Edit';
-import { Delete } from '../Delete';
+import React from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const UserList = () => {
-    const [users, setUser] = useState([]);
+  const [users, setUser] = useState([]);
 
-    useEffect(()=> { 
-        fetch('https://jsonplaceholder.typicode.com/users')
-        .then(response => response.json())
-        .then(response => {
-          setUser(response);
-        }); 
-    }, [])
+  useEffect(() => {
+    LoadUser();
+  }, []);
 
-    // console.log(users);
+  const LoadUser = async () => {
+      const result = await axios.get('http://localhost:3001/users')
+      console.log(result.data);
+      setUser(result.data);
+  }
+
+  // console.log(users);
 
   return (
-      <div>
-        {
-          users.map((user) => (
-            <div>
-                <div key={user.id}>
-                    <h2>User ID : {user.id}</h2>
-                    <h4>Name :  {user.name}</h4>
-                    <p>Phone : {user.phone}</p>
-                    <p>Email : {user.email}</p>
-                </div>
+    <div>
+      {users.map((user) => (
+        <div>
+          <div key={user.id}>
+            <h2>User ID : {user.id}</h2>
+            <h4>Name : {user.name}</h4>
+            <p>Phone : {user.phone}</p>
+            <p>Email : {user.email}</p>
+          </div>
 
-                <div>
-                  <button> <Edit/> </button>
-                  <button> <Delete/> </button>
-                </div>
-            </div>
-          ))
-        }
-      </div>
-  )
-}
+          <div>
+            <button>
+              {" "}
+              <Link to="/Edit">Edit</Link>{" "}
+            </button>
+            <button>
+              {" "}
+              <Link to="/Delete">Delete</Link>{" "}
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 export default UserList;
