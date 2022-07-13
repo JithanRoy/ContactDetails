@@ -1,15 +1,19 @@
 import React from "react";
 import "./AddUser.css";
-import FormControl from "@mui/material/FormControl";
-import TextField from "@mui/material/Input";
+import axios from "axios";
+import { TextField, Button } from "@mui/material";
+import { useState, useHistory } from "react";
+
 
 const AddUser = () => {
-  const [inputValue, setInputValue] = React.useState({
+  const history = useHistory();
+  const [inputValue, setInputValue] = useState({
     name: "",
     email: "",
     username: "",
   });
 
+  const { name, email, username } = inputValue;
   const handleInputChange = (e) => {
     const { name, email, username, value } = e.target;
     setInputValue({
@@ -19,37 +23,44 @@ const AddUser = () => {
       [username]: value,
     });
   };
+
+  const onClickChange = async (e) => {
+      e.preventDefault();
+      await axios.post("http://localhost:3001/users",inputValue);
+      history.push("/");
+  }
+
   return (
-    <div className="formGroup">
-      <FormControl>
-        <TextField
-          id="name-input"
-          name="name"
-          label="Name"
-          type="text"
-          value={inputValue.name}
-          onChange={handleInputChange}
-        />
-
-        <TextField
-          id="email-input"
-          name="email"
-          label="email"
-          type="email"
-          value={inputValue.name}
-          onChange={handleInputChange}
-        />
-
-        <TextField
-          id="username-input"
-          name="username"
-          label="username"
-          type="text"
-          value={inputValue.name}
-          onChange={handleInputChange}
-        />
-      </FormControl>
-    </div>
+      <form className="formGroup" onSubmit={(e) => onClickChange(e)}>
+            <TextField
+              id="name-input"
+              className="addUserInputField"
+              label="name"
+              variant="outlined"
+              name="name"
+              value={name}
+              onChange={(e) => handleInputChange(e)}
+            />
+            <TextField
+              id="username-input"
+              className="addUserInputField"
+              label="username"
+              variant="outlined"
+              name="username"
+              value={username}
+              onChange={(e) => handleInputChange(e)}
+            />
+            <TextField
+              id="email-input"
+              className="addUserInputField"
+              label="email"
+              variant="outlined"
+              name="email"
+              value={email}
+              onChange={(e) => handleInputChange(e)}
+            />
+            <Button variant="contained">Submit</Button>
+      </form>
   );
 };
 

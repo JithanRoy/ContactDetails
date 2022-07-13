@@ -3,4 +3,11 @@
     min-width: 500px;
     background-color: blanchedalmond;
     border: 1px solid gray;
+    display: grid;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+
+.formGroup > .addUserInputField {
+    width: 500px;
 }
